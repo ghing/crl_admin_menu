@@ -1,0 +1,6 @@
+name = CRL Administration Menu
+description = "CRL customizations to the menu produced by the Administration Menu module."
+core = 6.x
+package = Administration
+dependencies[] = admin_menu
+
