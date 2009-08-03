@@ -23,13 +23,13 @@ function crl_admin_menu_help($path, $arg) {
 */
 function crl_admin_menu_menu() {
   // Dummy menu item so we can place things below it in the admin menu
-  $items['crl_admin_menu'] = array(
-    'title' => 'CRL Website Administration',
-    'page callback' => 'drupal_goto',
-    'page arguments' => array('<front>'),
-    'access callback' => 'user_access',
-    'access arguments' => array('access administration menu'), 
-  );
+/*  $items['crl_admin_menu'] = array(*/
+    //'title' => 'CRL Website Administration',
+    //'page callback' => 'drupal_goto',
+    //'page arguments' => array('<front>'),
+    //'access callback' => 'user_access',
+    //'access arguments' => array('access administration menu'), 
+  /*);*/
 
 
   // Create proxy menu items for the create content menu items so we can place 
@@ -86,19 +86,20 @@ function crl_admin_menu_admin_menu(&$deleted) {
   $links = array();
 
   // Place our dummy menu at the root of the admin menu
-  $links[] = array(
-    'title' => 'CRL Website Administration',
-    'path' => 'crl_admin_menu',
-    'weight' => CRL_MENU_BASE_WEIGHT,
-    'parent_path' => '<root>',
-  );  
+/*  $links[] = array(*/
+    //'title' => 'CRL Website Administration',
+    //'path' => 'crl_admin_menu',
+    //'weight' => CRL_MENU_BASE_WEIGHT,
+    //'parent_path' => '<root>',
+  /*);  */
 
   // Make links to our content status views
   $links[] = array(
     'title' => 'Content Status',
     'path' => 'status',
-    'weight' => 0,
-    'parent_path' => 'crl_admin_menu',
+    'weight' => CRL_MENU_BASE_WEIGHT,
+    //'parent_path' => 'crl_admin_menu',
+    'parent_path' => '<root>',
   );
 
   $links[] = array(
@@ -115,8 +116,9 @@ function crl_admin_menu_admin_menu(&$deleted) {
   $links[] = array(
     'title' => 'Create Content',
     'path' => 'crl_admin_menu/node/add',
-    'weight' => 1,
-    'parent_path' => 'crl_admin_menu',
+    'weight' => CRL_MENU_BASE_WEIGHT + 1,
+    //'parent_path' => 'crl_admin_menu',
+    'parent_path' => '<root>',
     );
 
   foreach (crl_admin_menu_menu() as $path => $item) {
