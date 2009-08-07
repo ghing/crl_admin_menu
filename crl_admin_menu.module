@@ -84,6 +84,18 @@ function crl_admin_menu_menu_alter(&$items) {
  */
 function crl_admin_menu_admin_menu(&$deleted) {
   $links = array();
+  $icon_path = '<front>';
+
+  $links[] = array(
+    'title' => 'Toggle Theme developer',
+    'path' => 'devel/devel_themer',
+    'weight' => 89,
+    'parent_path' => $icon_path,
+    'options' => array(
+      'query' => drupal_get_destination(),
+    ),
+  );
+
 
   // Place our dummy menu at the root of the admin menu
 /*  $links[] = array(*/
