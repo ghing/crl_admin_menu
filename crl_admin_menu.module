@@ -130,6 +130,15 @@ function crl_admin_menu_admin_menu(&$deleted) {
         );
     }
   }
+
+  // Place a link to our handbook in the admin menu
+  $links[] = array(
+    'title' => 'Handbook',
+    //'path' => 'handbook',
+    'path' => 'node/6122',
+    'weight' => CRL_MENU_BASE_WEIGHT + 2,
+    'parent_path' => '<root>',
+    );
   
   return $links;
 } // function crl_admin_menu_admin_menu
