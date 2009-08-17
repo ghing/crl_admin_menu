@@ -193,3 +193,52 @@ function crl_admin_menu_translated_menu_link_alter(&$item, $map) {
     $item['href'] = t($item['href'], array('@username' => $user->name));
   }
 }
+
+/**
+ * Implementation of hook_admin_menu_output_alter.  This alters the admin menu output.
+ * NOTE: admin_menu does not yet seem to correctly support this method as of 
+ *       6.x-3.0-alpha3 ($content['links'] is never accessed in the calling code.
+ *       Once it is fully supported, use this function to alter the menu instead
+ *       of the hooks above. 
+ *       - Geoffrey Hing <ghing@crl.edu> 2009-08-17
+ *
+ * See http://drupal.org/node/276751#comment-1760160 for details.
+ *
+ * $content['menu'] contains the HTML representation of the items
+ * admin menu builds with menu_name = 'admin_menu'.
+ * See admin_menu_menu_alter().
+ * $content['links'] contains the top level items of the admin menu.
+ * You can add more items here and play with the #weight attribute to
+ * place them where you need.
+ * For information on how to build your items, look at the inline docs for
+ * theme_admin_menu_links().
+ * Use something like var_dump() to figure out the structure, or look at
+ * admin_menu_adjust_items() for examples.
+ *
+ */
+function crl_admin_menu_admin_menu_output_alter(&$content) {
+  //$content['links']['status'] = array(
+      //'#title' => 'Content Status',
+      //'#href' => 'status',
+      //'#weight' => CRL_MENU_BASE_WEIGHT,
+  //);
+
+  //$links[] = array(
+    //'title' => 'Content Status',
+    //'path' => 'status',
+    //'weight' => CRL_MENU_BASE_WEIGHT,
+    ////'parent_path' => 'crl_admin_menu',
+    //'parent_path' => '<root>',
+  //);
+
+  //$links[] = array(
+    //'title' => 'My Content Status',
+    //'path' => 'status/@username', 
+    //'weight' => 0,
+    //'parent_path' => 'status',
+    //// Note: @username is dynamically replaced by default, we just invoke
+    //// replacement by setting the 'tp' key here.
+    //'options' => array('extra class' => 'crl-admin-menu-action', 'tp' => array()),
+  //)
+} // function crl_admin_menu_admin_menu_output_alter
+?>
